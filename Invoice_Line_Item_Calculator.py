@@ -20,7 +20,6 @@ def get_quantity():
 
 def get_exit_loop():
     while True:
-        print()
         try:
             choice = input("Do you want to enter another line item? (y/n): ")
             if choice.lower() == 'y':
@@ -37,18 +36,20 @@ def main():
     total = 0.0
     
     while True:
+        print()
         price = get_price()
         quantity = get_quantity()
         
         line_total = round(price * quantity,)
         total += line_total
-        
-        print("\nPrice: ${:.2f}".format(price))
+        print()
+        print("Price: ${:.2f}".format(price))
         print(f"Quantity: {quantity}")
         print("Total: ${:.2f}".format(line_total))
         
         choice = get_exit_loop()
         if choice == "n":
+            print()
             print("Invoice Total: ${:.2f}".format(total))
             print("Thank you, Good buy ;)")
             break

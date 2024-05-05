@@ -1,6 +1,3 @@
-from random import choices
-
-
 def get_price():
     while True:
         try:

@@ -16,7 +16,7 @@ def get_quantity():
                 raise ValueError
             return quantity
         except ValueError:
-            print("Invalid integer. please try again.")
+            print("Invalid integer. Please try again.")
 
 def get_exit_loop():
     while True:
@@ -30,7 +30,7 @@ def get_exit_loop():
             else:
                 raise ValueError
         except ValueError:    
-                print("Invalid integer. please try again.")
+                print("Invalid integer. Please try again.")
                 continue
 def main():
     print("The invoice line item calculator \n")

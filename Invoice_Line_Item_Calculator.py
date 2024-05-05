@@ -18,7 +18,7 @@ def get_quantity():
         except ValueError:
             print("Invalid integer. please try again.")
 
-def exit_loop():
+def get_exit_loop():
     while True:
         try:
             choice = input("Do you want to enter another line item? (y/n): ")
@@ -47,7 +47,7 @@ def main():
         print(f"Quantity: {quantity}")
         print("Total: ${:.2f}".format(line_total))
         
-        choice = exit_loop()
+        choice = get_exit_loop()
         if choice == "n":
             print("Invoice Total: ${:.2f}".format(total))
             print("Thank you, Good buy ;)")

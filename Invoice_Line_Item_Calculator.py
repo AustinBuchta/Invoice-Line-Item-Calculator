@@ -1,3 +1,6 @@
+from random import choices
+
+
 def get_price():
     while True:
         try:
@@ -6,7 +9,7 @@ def get_price():
                 raise ValueError
             return price
         except ValueError:
-            print("Invalid input. Please enter a valid price (a non-negative decimal number with two decimal places).")
+            print("Invalid decimal number. Please try again.")
 
 def get_quantity():
     while True:
@@ -16,8 +19,23 @@ def get_quantity():
                 raise ValueError
             return quantity
         except ValueError:
-            print("Invalid input. Please enter a valid quantity (a non-negative integer).")
-    
+            print("Invalid integer. please try again.")
+
+def exit_loop():
+    while True:
+        try:
+            choice = input("Do you want to enter another line item? (y/n): ")
+            print()
+            if choice.lower() == 'y':
+                return choice
+            elif choice.lower() == 'n':
+                return choice
+            else:
+                print("Invalid entry, please enter y or n")
+                continue
+        except ValueError:
+                print("Invalid integer. please try again.")
+                continue
 def main():
     print("The invoice line item calculator \n")
     total = 0.0
@@ -26,22 +44,19 @@ def main():
         price = get_price()
         quantity = get_quantity()
         
-        line_total = round(price * quantity, 2)
+        line_total = round(price * quantity,)
         total += line_total
         
-        print("\nPrice: $ {:.2f}".format(price))
+        print("\nPrice: ${:.2f}".format(price))
         print(f"Quantity: {quantity}")
-        print("Total: $ {:.2f}".format(line_total))
+        print("Total: ${:.2f}".format(line_total))
         
-        
-        choice = input("Do you want to enter another line item? (y/n): ")
-        print()
-        if choice.lower() == 'y':
-            continue
-        else:
-            print("Ending Total: $ {:.2f}".format(total))
+        choice = exit_loop()
+        if choice == "n":
+            print("Invoice Total: ${:.2f}".format(total))
             print("Thank you, Good buy ;)")
             break
+        
         
 if __name__ == "__main__":
     main()

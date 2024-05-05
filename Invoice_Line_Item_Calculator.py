@@ -20,9 +20,9 @@ def get_quantity():
 
 def get_exit_loop():
     while True:
+        print()
         try:
             choice = input("Do you want to enter another line item? (y/n): ")
-            print()
             if choice.lower() == 'y':
                 return choice
             elif choice.lower() == 'n':

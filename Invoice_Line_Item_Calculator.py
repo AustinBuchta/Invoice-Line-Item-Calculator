@@ -28,9 +28,8 @@ def exit_loop():
             elif choice.lower() == 'n':
                 return choice
             else:
-                print("Invalid entry, please enter y or n")
-                continue
-        except ValueError:
+                raise ValueError
+        except ValueError:    
                 print("Invalid integer. please try again.")
                 continue
 def main():
